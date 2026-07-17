@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebCraft | Premium Websites That Feel Effortless</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #07110f;
+        --bg-soft: #0f1f1b;
+        --surface: rgba(255, 255, 255, 0.08);
+        --surface-strong: rgba(255, 255, 255, 0.14);
+        --text: #f4fef9;
+        --muted: #9ab6ad;
+        --accent: #4fe0b3;
+        --accent-2: #37b8d6;
+        --accent-3: #7a5cff;
+        --border: rgba(255, 255, 255, 0.14);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        --scroll: 0px;
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(79, 224, 179, 0.22), transparent 28%),
+          radial-gradient(circle at 85% 15%, rgba(55, 184, 214, 0.2), transparent 24%),
+          linear-gradient(135deg, var(--bg), #0c1815 60%, #09110e 100%);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: auto;
+        width: 24rem;
+        height: 24rem;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.24;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      body::before {
+        top: -6rem;
+        left: -8rem;
+        background: var(--accent);
+      }
+
+      body::after {
+        bottom: -8rem;
+        right: -6rem;
+        background: var(--accent-2);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+
+      .container {
+        width: min(1160px, calc(100% - 2rem));
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(18px);
+        background: rgba(7, 17, 15, 0.72);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        width: 0.95rem;
+        height: 0.95rem;
+        border-radius: 0.3rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 16px rgba(79, 224, 179, 0.45);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover { color: var(--text); }
+
+      .hero {
+        padding: 5.5rem 0 4rem;
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        padding: 0.45rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(79, 224, 179, 0.14);
+        color: #84f1cb;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.3rem, 4.7vw, 4rem);
+        line-height: 1.06;
+        margin: 0 0 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+        color: var(--muted);
+        margin: 0 0 1.4rem;
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-bottom: 1.35rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 0.92rem 1.2rem;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #03110e;
+        box-shadow: 0 16px 34px rgba(79, 224, 179, 0.24);
+      }
+      .btn-secondary {
+        color: var(--text);
+        border-color: var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .trust-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        color: var(--muted);
+      }
+
+      .trust-list li {
+        padding: 0.5rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        font-size: 0.9rem;
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+
+      .hero-visual::before {
+        content: "";
+        position: absolute;
+        inset: -1rem;
+        border-radius: 2rem;
+        background: linear-gradient(135deg, rgba(79, 224, 179, 0.16), rgba(55, 184, 214, 0.14));
+        filter: blur(24px);
+        z-index: 0;
+      }
+
+      .dashboard {
+        position: relative;
+        z-index: 1;
+        padding: 1rem;
+        border-radius: 1.5rem;
+        background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+        border: 1px solid var(--border);
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(22px);
+      }
+
+      .scroll-move {
+        transform: translate3d(0, calc(var(--scroll) * var(--scroll-speed, 0.02)), 0);
+        will-change: transform;
+      }
+
+      .scroll-slow { --scroll-speed: 0.015; }
+      .scroll-medium { --scroll-speed: 0.028; }
+      .scroll-fast { --scroll-speed: 0.045; }
+
+      .dashboard-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 0.8rem 0.9rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .dots {
+        display: flex;
+        gap: 0.4rem;
+      }
+
+      .dots span {
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.3);
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 0.9rem;
+        padding-top: 0.9rem;
+      }
+
+      .panel {
+        padding: 1rem;
+        border-radius: 1rem;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .panel.large {
+        grid-row: span 2;
+      }
+
+      .chart {
+        height: 10rem;
+        border-radius: 1rem;
+        background: linear-gradient(180deg, rgba(79,224,179,0.28), rgba(55,184,214,0.12));
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 0.8rem;
+      }
+
+      .chart::before {
+        content: "";
+        position: absolute;
+        inset: 1rem;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 0.8rem;
+      }
+
+      .chart::after {
+        content: "";
+        position: absolute;
+        left: 10%;
+        bottom: 14%;
+        width: 80%;
+        height: 45%;
+        background: linear-gradient(90deg, rgba(79,224,179,0.8), rgba(122,92,255,0.6));
+        clip-path: polygon(0 100%, 20% 65%, 35% 78%, 50% 55%, 70% 70%, 85% 35%, 100% 20%, 100% 100%);
+      }
+
+      .mini-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .mini-stats span {
+        padding: 0.45rem 0.65rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.08);
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .panel h4 {
+        margin: 0 0 0.4rem;
+        font-size: 1rem;
+      }
+
+      .panel p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      section { padding: 2rem 0 3rem; }
+      .section-header {
+        margin-bottom: 1.1rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.75rem;
+        margin: 0 0 0.4rem;
+      }
+
+      .section-header p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 720px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .stat-card,
+      .service-card,
+      .project-card,
+      .step-card {
+        padding: 1.2rem;
+        border-radius: 1.2rem;
+        background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+        border: 1px solid var(--border);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .stat-card:hover,
+      .service-card:hover,
+      .project-card:hover,
+      .step-card:hover,
+      .process-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(79, 224, 179, 0.35);
+      }
+
+      .stat-card strong {
+        display: block;
+        font-size: 1.4rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-card span,
+      .service-card p,
+      .project-card p,
+      .step-card p {
+        color: var(--muted);
+      }
+
+      .service-grid,
+      .project-grid,
+      .steps-grid,
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .icon {
+        display: inline-grid;
+        place-items: center;
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 0.8rem;
+        background: linear-gradient(135deg, rgba(79,224,179,0.26), rgba(55,184,214,0.2));
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+      }
+
+      .project-card .tag {
+        display: inline-block;
+        margin-bottom: 0.65rem;
+        padding: 0.38rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(55, 184, 214, 0.16);
+        color: #8de9ff;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .example-grid,
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .example-card,
+      .testimonial-card {
+        padding: 1.2rem;
+        border-radius: 1.2rem;
+        background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+        border: 1px solid var(--border);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      }
+
+      .example-card .preview {
+        height: 8rem;
+        border-radius: 0.95rem;
+        background: linear-gradient(135deg, rgba(79,224,179,0.24), rgba(55,184,214,0.16));
+        margin-bottom: 0.8rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .example-card .preview::before,
+      .example-card .preview::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+
+      .example-card .preview::before {
+        inset: 1rem 1.2rem auto auto;
+        width: 45%;
+        height: 55%;
+        border-radius: 0.8rem;
+        background: rgba(255,255,255,0.16);
+      }
+
+      .example-card .preview::after {
+        inset: auto 1.2rem 1rem 1rem;
+        height: 22%;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.12);
+      }
+
+      .testimonial-card blockquote {
+        margin: 0 0 0.8rem;
+        font-size: 1rem;
+        color: var(--text);
+      }
+
+      .testimonial-card .person {
+        font-weight: 700;
+        color: #8de9ff;
+      }
+
+      .testimonial-card .role {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
+      }
+
+      .step-number {
+        display: inline-grid;
+        place-items: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #03110e;
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .process-card {
+        padding: 1.2rem;
+        border-radius: 1.2rem;
+        background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+        border: 1px solid var(--border);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        text-align: center;
+      }
+
+      .process-card .step-number {
+        margin-bottom: 0.85rem;
+      }
+
+      .quote-panel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.35rem;
+        border-radius: 1.3rem;
+        background: linear-gradient(120deg, rgba(79,224,179,0.16), rgba(122,92,255,0.14));
+        border: 1px solid rgba(79,224,179,0.24);
+      }
+
+      .scroll-move {
+        transform: translate3d(0, calc(var(--scroll) * var(--scroll-speed, 0.02)), 0);
+        will-change: transform;
+      }
+
+      .scroll-slow { --scroll-speed: 0.015; }
+      .scroll-medium { --scroll-speed: 0.028; }
+      .scroll-fast { --scroll-speed: 0.045; }
+
+      .quote-panel h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.35rem;
+      }
+
+      .quote-panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .footer {
+        padding: 1.4rem 0 2rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .dashboard-grid,
+        .service-grid,
+        .project-grid,
+        .steps-grid,
+        .stats-grid,
+        .example-grid,
+        .testimonial-grid,
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero { padding-top: 3.3rem; }
+        .quote-panel { flex-direction: column; align-items: flex-start; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#top"><span class="brand-mark"></span>WebCraft</a>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <section class="hero container">
+        <div>
+          <div class="eyebrow">Premium web design for modern brands</div>
+          <h1>Your next website should feel as good as your business does.</h1>
+          <p>I create refined, fast, and conversion-focused websites that make a strong first impression and help your audience take action with confidence.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book a free consultation</a>
+            <a class="btn btn-secondary" href="#services">Explore services</a>
+          </div>
+          <ul class="trust-list">
+            <li>Mobile-first layouts</li>
+            <li>SEO-ready structure</li>
+            <li>Fast load times</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual scroll-move scroll-medium">
+          <div class="dashboard">
+            <div class="dashboard-top">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div style="color: var(--muted); font-size: 0.9rem;">Launch-ready preview</div>
+            </div>
+            <div class="dashboard-grid">
+              <div class="panel large">
+                <div class="chart"></div>
+                <div class="mini-stats">
+                  <span>Clear storytelling</span>
+                  <span>Smarter conversion paths</span>
+                  <span>Elegant visuals</span>
+                </div>
+              </div>
+              <div class="panel">
+                <h4>Built for growth</h4>
+                <p>Thoughtful layout, strong messaging, and a polished experience from the first scroll.</p>
+              </div>
+              <div class="panel">
+                <h4>Designed to convert</h4>
+                <p>Every section is crafted to guide visitors toward the next best action.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="section-header scroll-move scroll-slow">
+          <h2>Why clients choose this approach</h2>
+          <p>Clean visuals, strategic structure, and a premium feel that builds trust instantly.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <strong>1:1 support</strong>
+            <span>Personal guidance from concept to launch.</span>
+          </div>
+          <div class="stat-card">
+            <strong>Responsive by default</strong>
+            <span>Looks sharp on phones, tablets, and desktops.</span>
+          </div>
+          <div class="stat-card">
+            <strong>Built around results</strong>
+            <span>Conversion-focused layouts that support your goals.</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="container">
+        <div class="section-header">
+          <h2>Our process</h2>
+          <p>A clear, collaborative path from first conversation to a polished website that keeps working for you.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="step-number">1</div>
+            <h3>Discovery Call</h3>
+            <p>We start by understanding your business, goals, audience, and the experience you want to create.</p>
+          </article>
+          <article class="process-card">
+            <div class="step-number">2</div>
+            <h3>Design</h3>
+            <p>I shape a refined layout with thoughtful visuals, messaging, and a clear path for visitors.</p>
+          </article>
+          <article class="process-card">
+            <div class="step-number">3</div>
+            <h3>Revisions</h3>
+            <p>We refine the direction together until the site feels aligned, polished, and ready to represent you.</p>
+          </article>
+          <article class="process-card">
+            <div class="step-number">4</div>
+            <h3>Launch</h3>
+            <p>Your website is published, optimized, and delivered with a smooth, confident rollout.</p>
+          </article>
+          <article class="process-card">
+            <div class="step-number">5</div>
+            <h3>Ongoing Support</h3>
+            <p>We stay available for updates, improvements, and future growth as your business evolves.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="work" class="container">
+        <div class="section-header">
+          <h2>What can be built</h2>
+          <p>Each website is shaped around your goals, tone, and audience so it feels unmistakably yours.</p>
+        </div>
+        <div class="project-grid">
+          <div class="project-card">
+            <span class="tag">Brand site</span>
+            <h3>Professional homepages</h3>
+            <p>Bold messaging, airy layouts, and elegant visuals that leave a memorable first impression.</p>
+          </div>
+          <div class="project-card">
+            <span class="tag">Service page</span>
+            <h3>Conversion-focused pages</h3>
+            <p>Clear sections, intuitive navigation, and confident calls to action that guide visitors forward.</p>
+          </div>
+          <div class="project-card">
+            <span class="tag">Portfolio</span>
+            <h3>Personal brand websites</h3>
+            <p>Beautifully presented work that feels modern, calm, and easy to explore.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="section-header">
+          <h2>Example sites</h2>
+          <p>Recent concepts built to feel memorable, modern, and effortless to explore.</p>
+        </div>
+        <div class="example-grid">
+          <article class="example-card">
+            <div class="preview"></div>
+            <span class="tag">Luxury brand</span>
+            <h3>North & Oak</h3>
+            <p>Editorial layout, refined messaging, and a calm path to booking.</p>
+          </article>
+          <article class="example-card">
+            <div class="preview"></div>
+            <span class="tag">Service studio</span>
+            <h3>Helio Collective</h3>
+            <p>Bold structure, bright visuals, and a polished experience for leads.</p>
+          </article>
+          <article class="example-card">
+            <div class="preview"></div>
+            <span class="tag">Creative portfolio</span>
+            <h3>Fable House</h3>
+            <p>Minimal, warm, and highly immersive for showcasing work beautifully.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="section-header">
+          <h2>What clients say</h2>
+          <p>Trusted by founders and brands that wanted their site to feel just as elevated as their offer.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <blockquote>“The process felt calm and strategic. Our new site instantly feels more premium and easier to trust.”</blockquote>
+            <div class="person">Maya Chen</div>
+            <div class="role">Founder, Studio Lumen</div>
+          </article>
+          <article class="testimonial-card">
+            <blockquote>“Every detail feels intentional. We launched faster, looked sharper, and started getting the right inquiries.”</blockquote>
+            <div class="person">Jordan Alvarez</div>
+            <div class="role">Owner, Helio Studio</div>
+          </article>
+          <article class="testimonial-card">
+            <blockquote>“It felt like the website finally matched the quality of our work. The experience is effortless for our clients.”</blockquote>
+            <div class="person">Nina Patel</div>
+            <div class="role">Creative Director, Fable House</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container">
+        <div class="quote-panel scroll-move scroll-slow">
+          <div>
+            <h3>Ready to create something memorable?</h3>
+            <p>Let’s build a website that feels elevated, effective, and unmistakably yours.</p>
+          </div>
+            <a class="btn btn-primary" href="mailto:hello@webcraft.com">Start your project</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const scrollRoot = document.documentElement || document.body;
+      const updateScroll = () => {
+        const y = Math.min(window.scrollY, 1200);
+        document.body.style.setProperty("--scroll", `${y * 0.35}px`);
+      };
+      window.addEventListener("scroll", updateScroll, { passive: true });
+      updateScroll();
+    </script>
+
+    <footer class="footer">
+      <div class="container">© 2026 WebCraft — elegant websites for ambitious brands.</div>
+    </footer>
+  </body>
+</html>
