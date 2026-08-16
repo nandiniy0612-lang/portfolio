@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You | SiteLaunch Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --navy: #0f2b4c;
+        --navy-dark: #081c31;
+        --blue: #1f5ea8;
+        --sky: #4ea8de;
+        --white: #f8fbff;
+        --text: #11253f;
+        --muted: #5f728c;
+        --border: #dfe9f4;
+        --success: #1dbf73;
+        --success-soft: #eafaf2;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Inter", "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #eff7ff 0%, #ffffff 100%);
+        color: var(--text);
+      }
+
+      .page {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem 1rem;
+      }
+
+      .card {
+        width: min(680px, 100%);
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: 0 24px 60px rgba(15, 43, 76, 0.12);
+        padding: clamp(2rem, 5vw, 3.5rem);
+        text-align: center;
+      }
+
+      .badge {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        background: var(--success-soft);
+        border: 1px solid rgba(29, 191, 115, 0.18);
+        display: grid;
+        place-items: center;
+        box-shadow: 0 20px 40px rgba(29, 191, 115, 0.12);
+      }
+
+      .badge svg {
+        width: 48px;
+        height: 48px;
+        color: var(--success);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(31, 94, 168, 0.08);
+        color: var(--blue);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.15;
+        color: var(--navy);
+      }
+
+      p {
+        margin: 0 auto 1.5rem;
+        max-width: 520px;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.9rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--navy);
+        color: white;
+        box-shadow: 0 12px 22px rgba(15, 43, 76, 0.18);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: var(--navy);
+        border: 1px solid var(--border);
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          padding: 1.5rem 1.2rem;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" aria-labelledby="thank-you-title">
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12.5L9.5 17L19 7.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="eyebrow">Success</div>
+        <h1 id="thank-you-title">Thank you for reaching out!</h1>
+        <p>
+          Your message has been received, and our team will be in touch with you soon.
+          We appreciate your interest in working with us.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="new.html">Back to Home</a>
+          <a class="btn btn-secondary" href="mailto:hello@yourdomain.com">Email Us</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
