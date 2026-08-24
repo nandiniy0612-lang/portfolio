@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — SiteLaunch Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-mark" aria-label="Home">
+      <svg class="sig" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 6 L8 20 L13 9 L18 20 L23 6" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      SiteLaunch Digital
+    </a>
+    <div class="nav-links">
+      <a href="work.html">Work</a>
+      <a href="approach.html">Approach</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="nav-chat">Let's chat</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero" style="border-bottom:none; padding-bottom:20px;">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Let's chat.</h1>
+      <p>Tell us a bit about the project. We reply within one business day.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px;">
+    <div class="wrap" style="max-width:640px;">
+
+      <!--
+        FORM SETUP — READ ME:
+        This form uses FormSubmit (https://formsubmit.co), a free service that
+        emails form submissions straight to an inbox — no backend or API key needed.
+
+        TO ACTIVATE:
+        1. Replace "youremail@example.com" below with your real email address.
+        2. Deploy/open the live page and submit the form once.
+        3. FormSubmit sends a one-time confirmation email to that address — click
+           the link in it to activate. Every submission after that lands in your inbox.
+      -->
+      <form action="https://formsubmit.co/nandini.y0612@gmail.com" method="POST" class="reveal">
+        <input type="hidden" name="_subject" value="New inquiry — SiteLaunch Digital site">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="thank-you.html">
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="Name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" required>
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="Company">
+        </div>
+        <div class="field">
+          <label for="message">Tell us about the project</label>
+          <textarea id="message" name="Message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send message →</button>
+        <p class="form-note">We'll never share your info. No spam, ever.</p>
+      </form>
+
+    </div>
+  </section>
+
+  <footer style="padding-top:20px;">
+    <div class="wrap contact">
+      <div class="foot-bottom">
+        <span>© 2026 SiteLaunch Digital</span>
+        <span>Web design & brand identity studio</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
